@@ -4,7 +4,7 @@
 
 
 <div class="col-md-8">
-    <form method="POST" action="/dashboard/product">
+    <form method="POST" action="/dashboard/product" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="Nama_Barang" class="form-label">Nama Barang</label>
@@ -21,7 +21,14 @@
         <div class="mb-3">
             <label for="Berat_Barang" class="form-label">Berat</label>
             <input type="text" class="form-control" id="Berat_Barang" name="Berat_Barang">
-          </div>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Image</label>
+          <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+          @error('image')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+      </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

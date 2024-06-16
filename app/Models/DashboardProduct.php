@@ -13,7 +13,7 @@ class DashboardProduct extends Model
     // {
     //     return DashboardProduct::all();
     // }
-    protected $fillable = ['Nama_Barang', 'Kategori', 'Berat_Barang'];
+    protected $fillable = ['Nama_Barang', 'Kategori', 'Berat_Barang', 'image'];
 
     // protected $table = 'dashboard_products';
 }

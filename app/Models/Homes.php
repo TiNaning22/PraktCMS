@@ -7,9 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Homes extends Model
 {
-    use HasFactory;
-    public function index()
-    {
-        return Homes::all();
-    }
+    protected $fillable = ['title_1', 'title_2', 'title_3', 'button_left', 'button_right', 'about_me_title', 'about_me_desc', 'img'];
 }

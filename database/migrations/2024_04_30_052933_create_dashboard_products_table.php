@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Nama_Barang');
             $table->string('Kategori');
             $table->string('Berat_Barang');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

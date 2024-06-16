@@ -23,6 +23,8 @@ class DashboardProductController extends Controller
 
     public function store(Request $request)
     {
+        return $request->file('image')->store('post-images');
+        
         $validateData = $request->validate([
             'Nama_Barang'=>'required',
             'Kategori'=>'required',

@@ -9,13 +9,16 @@
         <div class="row gx-5 align-items-center">
             <div class="col-xxl-5">
                 <!-- Header text content-->
+                @foreach ($homes as $homes)
+                    
+                
                 <div class="text-center text-xxl-start">
-                    <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Design &middot; Development &middot; Marketing</div></div>
-                    <div class="fs-3 fw-light text-muted">I can help your business to</div>
-                    <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Get online and grow fast</span></h1>
+                    <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">{{ $homes->title_1 }}</div></div>
+                    <div class="fs-3 fw-light text-muted">{{ $homes->title_2 }}</div>
+                    <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">{{ $homes->title_3 }}</span></h1>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="resume.html">Resume</a>
-                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Projects</a>
+                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="resume.html">{{ $homes->button_left }}</a>
+                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">{{ $homes->button_right }}</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +28,7 @@
                     <div class="profile bg-gradient-primary-to-secondary">
                         <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                         <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                        <img class="profile-img" src="{{ asset('assets/public/assets/profile.png') }} " alt="..." />
+                        <img class="profile-img" src="{{ asset('storage/' .$homes->img) }}" alt="Gambar" />
                         <div class="dots-1">
                             <!-- SVG Dots-->
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
@@ -150,11 +153,10 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-xxl-8">
                 <div class="text-center my-5">
-                    <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
-                    @foreach ($homes as $homes)
-                    <p class="lead fw-light mb-4">{{$homes->title}}</p>
-                    <p class="text-muted">{{$homes->body}}</p>
-                    @endforeach
+                    <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">{{ $homes->about_me_title }}</span></h2>
+                    <p class="lead fw-light mb-4">{{ $homes->about_me_desc }}</p>
+                    <p class="text-muted"></p>
+                    
                     
                     
                     <div class="d-flex justify-content-center fs-2 gap-4">
@@ -166,6 +168,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 </section>
 
 @endsection

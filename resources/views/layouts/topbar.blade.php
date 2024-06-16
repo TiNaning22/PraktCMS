@@ -27,7 +27,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/home">To Home</a></li>
-              <li><a class="dropdown-item" href="/DashboardProfile">Profile</a></li>
+              <li><a class="dropdown-item" href="/product">Product</a></li>
               <li>
                 <form action="/logout" method="post">
                     @csrf

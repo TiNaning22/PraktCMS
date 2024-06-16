@@ -29,11 +29,17 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validateData = $request->validate([
             'Nama_Barang'=>'required',
             'Kategori'=>'required',
-            'Berat_Barang'=>'required'
+            'Berat_Barang'=>'required',
+            'image' => 'image|file|max:1024'
         ]);
+
+        if($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('post-images');
+        }
 
         DashboardProduct::create($validateData);
         return redirect('/dashboard/product')->with('success', 'Berhasil Menambahkan');
@@ -62,6 +68,8 @@ class DashboardController extends Controller
      */
     public function update(Request $request, DashboardProduct $product)
     {
+
+        
         $validatedData = $request->validate([
             'Nama_Barang' => 'required',
             'Kategori' => 'required',
@@ -69,7 +77,6 @@ class DashboardController extends Controller
         ]);
 
         $product->update($validatedData);
-
         return redirect('/dashboard/product')->with('success', 'Produk berhasil diupdate');
         
     }

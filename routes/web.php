@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\DashboardHomeController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardProfileController;
 
@@ -27,29 +27,28 @@ use App\Http\Controllers\DashboardProfileController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/home', function () {
-    return view('home');
+
+Route::get('/contact', function () {
+    return view('contact');
 });
-Route::get('/home', [HomesController::class,'index']);
+
+Route::get('/eror404', function () {
+    return view('eror404');
+});
+// Route::get('/home', [HomesController::class,'index']);
 
 Route::get('/dashboard', function() {
     return view ('dashboard');
 })->middleware('auth');
 
-Route::get('/profile', [ProfileController::class,'index']);
+Route::get('/product', [ProductController::class,'index']);
 Route::get('/DashboardProfile', [DashboardProfileController::class, 'index']);
 
-Route::get('/contact', [ProfileController::class,'test_index']);
-
 Route::get('/DashboardProduct', [DashboardProductController::class,'index']);
+Route::get('/dashboardhome', [DashboardHomeController::class,'index']);
 
-// route::resource('/DashboardProduct', DashboardProductController::class);
 route::resource('/dashboard/product', DashboardController::class)->middleware('auth');
-// Route::resource('/dashboard/product', DashboardController::class)->scoped([
-//     'dashboardproducts' => 'id',
-// ]);
-
-
+route::resource('/home', HomesController::class);
 
 Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate']);

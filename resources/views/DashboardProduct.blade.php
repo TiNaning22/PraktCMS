@@ -16,6 +16,7 @@
                         <th scope="col">Nama Barang</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Berat</th>
+                        <th scope="col">Gambar</th>
                         <th scope="col" style="width: 170px;">Option</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                         <td>{{ $products->Nama_Barang}}</td>
                         <td>{{ $products->Kategori}}</td>
                         <td>{{ $products->Berat_Barang}}</td>
+                        <td><img src="{{ asset('storage/' .$products->image) }}" alt="image" width="100" height="100"></td>
                         <td>
 
                             <a href="/dashboard/product/{{ $products->id }}/edit"class="badge bg-warning p-2 m-1"><i class="bi bi-pencil-square m-1"></i></a>
