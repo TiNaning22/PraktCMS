@@ -42,7 +42,7 @@ class HomesController extends Controller
             'button_right'=>'required',
             'about_me_title'=>'required',
             'about_me_desc'=>'required',
-            'img'=>'image|file|max:1024',
+            'img'=>'image|file',
         ]);
 
         if ($request->file('img')) {
@@ -84,7 +84,7 @@ class HomesController extends Controller
             'button_right'=>'required',
             'about_me_title'=>'required',
             'about_me_desc'=>'required',
-            'img'=>'image|file|max:1024',
+            'img'=>'image|file',
         ]);
 
         if ($request->file('img')) {

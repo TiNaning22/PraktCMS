@@ -22,7 +22,7 @@
                                                 <h2 class="fw-bolder">{{ $products->Nama_Barang }}</h2>
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
                                             </div>
-                                            <img class="img-fluid" src="{{ asset('storage/' .$products->image) }}" alt="..." />
+                                            <img class="img-fluid " width="50%" height="50%" src="{{ asset('storage/' .$products->image) }}" alt="..." />
                                         </div>
                                     </div>
                                 </div>

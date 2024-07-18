@@ -27,6 +27,7 @@ class ContactController extends Controller
         'pesan_user' => 'required',
     ]);
 
+    $this->sendEmail($request->all());
     
     try {
         DB::beginTransaction(); 
@@ -36,7 +37,7 @@ class ContactController extends Controller
         $contacts->pesan = $request->pesan_user;
         $contacts->save();
 
-        $this->sendEmail($request->all());
+        
 
         DB::commit();
             return redirect()->route('contact')->with('success', 'Yeeyy! Pesan Anda Telah Terkirim!');
